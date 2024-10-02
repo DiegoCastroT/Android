@@ -1,4 +1,3 @@
 fun main() {
-    val name = "Kotlin"
-    println("Hello, " + name)
+    println("Hello, ")
 }
