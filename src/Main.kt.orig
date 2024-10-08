@@ -1,0 +1,8 @@
+fun main() {
+    println("Hello")
+    println("Hello2")
+<<<<<<< HEAD
+    println("Nuevo texto feature 1")
+=======
+>>>>>>> 7d4303f86846634afa475fe258b099c2190f6e4c
+}
