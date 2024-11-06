@@ -1,0 +1,5 @@
+package alamacenBebidas
+
+class AguaMineral() {
+
+}
