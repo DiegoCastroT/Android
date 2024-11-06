@@ -1,5 +1,9 @@
 package alamacenBebidas
 
+/**
+ * AlmacenBebidas represents a storage of drinks.
+ * @property estanteria is a 5x5 matrix of drinks.
+ */
 data class AlmacenBebidas(val estanteria: Array<Array<Bebida?>> = Array(5) { Array(5) { null } })
 
 
@@ -12,7 +16,7 @@ fun removeBebida(bebida: Bebida) {
 }
 
 fun mostrarBebida(bebida: Bebida) {
-    println(bebida.mostrarBebida())
+    println(bebida.mostrarInformacion())
 }
 
 fun mostrarPrecioTotal(bebida: Bebida) {
