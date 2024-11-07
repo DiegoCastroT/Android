@@ -2,10 +2,10 @@ package alamacenBebidas
 
 
 open class Bebida(
-    private val id: Int,
-    private val litros: Double,
+     val id: Int,
+     val litros: Double,
     val precio: Double,
-    private val marca: String
+     val marca: String
 ) {
 
     open fun calcularPrecio(): Double {
