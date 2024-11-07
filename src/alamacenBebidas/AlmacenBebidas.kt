@@ -24,8 +24,13 @@ class AlmacenBebidas {
         return false
     }
 
-    fun removeBebida(bebida: Bebida) {
-
+    fun removeBebida(bebida: Bebida): Boolean {
+        val index = getIndex(bebida)
+        if (index != null) {
+            estanteria[index.first][index.second] = null
+            return true
+        }
+        return false
     }
 
     fun mostrarBebida(bebida: Bebida) {
@@ -56,8 +61,8 @@ class AlmacenBebidas {
     }
 
     private fun getIndex(bebida: Bebida): Pair<Int, Int>? {
-        for (fila in 0 .. 5) {
-            for (columna in 0 .. 5) {
+        for (fila in 0..5) {
+            for (columna in 0..5) {
                 if (estanteria[fila][columna]?.id == bebida.id) {
                     return Pair(fila, columna)
                 }
