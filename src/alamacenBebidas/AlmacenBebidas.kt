@@ -9,12 +9,9 @@ class AlmacenBebidas {
 
 
     fun addBebida(bebida: Bebida): Boolean {
-        if (isId(bebida)) {
-            return false
-        }
 
-        for (fila in 0..<5) {
-            for (columna in 0..<5) {
+        for (fila in 0..4) {
+            for (columna in 0..4) {
                 if (estanteria[fila][columna] == null) {
                     estanteria[fila][columna] = bebida
                     return true
@@ -24,35 +21,12 @@ class AlmacenBebidas {
         return false
     }
 
-    fun removeBebida(bebida: Bebida): Boolean {
-        val index = getIndex(bebida)
-        if (index != null) {
-            estanteria[index.first][index.second] = null
-            return true
-        }
-        return false
-    }
+    fun removeBebida(id:Int): Boolean {
 
-    fun mostrarBebida(bebida: Bebida) {
-        println(bebida.mostrarInformacion())
-    }
-
-    fun mostrarPrecioTotal(bebida: Bebida) {
-        //mostrar total de precio de la bebida
-    }
-
-    fun mostrarPrecioTotalMarca(marca: String) {
-        //mostrar total de precio de la bebida por marca
-    }
-
-    fun mostrarPrecioTotalColumna(columna: Int) {
-        //mostrar total de precio de la bebida por columna
-    }
-
-    private fun isId(bebida: Bebida): Boolean {
-        for (fila in 0..5) {
-            for (columna in 0..5) {
-                if (estanteria[fila][columna]?.id == bebida.id) {
+        for(fila in 0..4){
+            for (columna in 0..4){
+                if(estanteria[fila][columna]?.id == id){
+                    estanteria[fila][columna] = null
                     return true
                 }
             }
@@ -60,15 +34,62 @@ class AlmacenBebidas {
         return false
     }
 
-    private fun getIndex(bebida: Bebida): Pair<Int, Int>? {
-        for (fila in 0..5) {
-            for (columna in 0..5) {
-                if (estanteria[fila][columna]?.id == bebida.id) {
-                    return Pair(fila, columna)
+    fun mostrarBebida() {
+
+        for (fila in 0..4) {
+            for (columna in 0..4) {
+                if (estanteria[fila][columna] != null) {
+                    println(estanteria[fila][columna]!!.mostrarInformacion())
                 }
             }
         }
-        return null
+
     }
+
+    fun mostrarPrecioTotal(): Double {
+
+        var total = 0.0
+        for(fila in 0..4){
+            for (columna in 0..4){
+                if(estanteria[fila][columna] != null){
+                    total += estanteria[fila][columna]!!.calcularPrecio()
+                }
+            }
+        }
+        return total
+    }
+
+    fun mostrarPrecioTotalMarca(marca: String) : Double {
+        var total = 0.0
+
+        for(fila in 0..4){
+            for (columna in 0..4){
+                if(estanteria[fila][columna]?.marca != null && estanteria[fila][columna]?.marca == marca){
+                    total += estanteria[fila][columna]!!.calcularPrecio()
+                }
+            }
+        }
+        return total
+    }
+
+    fun mostrarPrecioTotalColumna(columna: Int): Double {
+
+        if(columna < 0 || columna > 4){
+            return 0.0
+        }
+
+        var total = 0.0
+        for (fila in 0..4) {
+            if(estanteria[fila][columna] != null){
+                total += estanteria[fila][columna]!!.calcularPrecio()
+            }
+        }
+
+        return total
+    }
+
+
+
+
 
 }
