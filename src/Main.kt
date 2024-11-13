@@ -110,7 +110,14 @@ fun showDrinks(){
 fun addMineralWater(): AguaMineral {
     println("Vamos a crear agua mineral")
     println("Dame el id")
-    val id = scanner.nextInt()
+
+    var id = scanner.nextInt()
+
+    while (almacenBebidas.checkId(id)) {
+        println("El ID ya existe. Introduce un ID único.")
+        id = scanner.nextInt()
+    }
+
     println("Dame los litros")
     val litros = scanner.nextDouble()
     println("Dame el precio")
@@ -128,8 +135,16 @@ fun addMineralWater(): AguaMineral {
 fun addSugarDring(): BebidaAzucarada{
 
     println("Vamos a crear una bebida azucarada")
+
     println("Dame el id")
-    val id = scanner.nextInt()
+
+    var id = scanner.nextInt()
+
+    while (almacenBebidas.checkId(id)) {
+        println("El ID ya existe. Introduce un ID único.")
+        id = scanner.nextInt()
+    }
+
     println("Dame los litros")
     val litros = scanner.nextDouble()
     println("Dame el precio")

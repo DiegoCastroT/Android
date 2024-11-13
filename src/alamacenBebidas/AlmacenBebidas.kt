@@ -88,6 +88,17 @@ class AlmacenBebidas {
         return total
     }
 
+    fun checkId(id : Int): Boolean {
+
+        for(fila in 0..4){
+            for (columna in 0..4){
+                if(estanteria[fila][columna]?.id == id){
+                    return true
+                }
+            }
+        }
+        return false
+    }
 
 
 
