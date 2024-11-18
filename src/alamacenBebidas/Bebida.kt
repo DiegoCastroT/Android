@@ -13,6 +13,6 @@ open class Bebida(
     }
 
     open fun mostrarInformacion() {
-        println("ID: $id, Litros: $litros, Precio: $precio, Marca: $marca")
+        println("ID: $id, Litros: $litros, Precio: ${calcularPrecio()}, Marca: $marca")
     }
 }
