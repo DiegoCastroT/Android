@@ -40,6 +40,7 @@ class AlmacenBebidas {
             for (columna in 0..4) {
                 if (estanteria[fila][columna] != null) {
                     println(estanteria[fila][columna]!!.mostrarInformacion())
+                    println("precio oferta" + estanteria[fila][columna]!!.calcularPrecio())
                 }
             }
         }
